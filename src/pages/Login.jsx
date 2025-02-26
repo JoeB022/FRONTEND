@@ -14,7 +14,7 @@ function Login() {
     setError(null); // Reset error state before making a request
 
     try {
-      const response = await fetch("http://localhost:5000/auth/login", {
+      const response = await fetch("http://localhost:5000/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -30,7 +30,7 @@ function Login() {
         setError(data.message || "Login failed. Please try again.");
       }
     } catch (err) {
-      setError("Network error. Please try again later.");
+      setError("Network error.");
     }
   };
 
