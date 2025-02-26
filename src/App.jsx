@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
@@ -17,12 +18,14 @@ function App() {
     <AuthProvider>
       <ThemeProvider>
         <Router>
-          <div className="container d-flex flex-column align-items-center mt-5">
-            <Navbar />
-            <Sidebar />
+          <Navbar />
+          <Sidebar />
+          <div className="container mt-5">
             <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              <Route path="/" element={<Home />}>
+                <Route path="login" element={<Login />} />
+                <Route path="register" element={<Register />} />
+              </Route>
               <Route path="/profile" element={<Profile />} />
               <Route path="/clerk-dashboard" element={<ClerkDashboard />} />
               <Route path="/admin-dashboard" element={<AdminDashboard />} />
